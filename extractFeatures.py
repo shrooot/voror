@@ -669,7 +669,7 @@ def get_prediction(url):
     status = model.predict(transformed_features)
     return status
 
-if __name__ == "__main__":
-    print(get_prediction("https://olx-pl.secure-buy.site"))
-    # print(get_prediction("https://music.amazon.in/"))
-    # print("\n")
+# if __name__ == "__main__":
+#     print(get_prediction("https://olx-pl.secure-buy.site"))
+#     # print(get_prediction("https://music.amazon.in/"))
+#     # print("\n")

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {{title}} {% endblock %}</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='style.css') }}"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@200&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="heading"> 
+    VOROR      
+    </div> 
+    <div class="form_container">
+      <div class="wrapper">
+        {% block color %}
+        <div class="response_container" {% if color == 'green'%} style="background-color: #48A14D;"
+        {% elif color == 'black' %} style="background-color: #C0C0C0; color: black; font-weight: 700;"
+        {% else %} style="background-color: #D61A3C;" {% endif %} >
+          {% endblock %}
+          {% block status %} {{status}} {% endblock %}
+        </div>
+        <form action="/url" method="POST" class="url-form">
+          <input
+            type="text"
+            class="url_input"
+            autocomplete="off"
+            name="url"
+            {% block val %} value="{{value}}" {% endblock %}
+            placeholder="Enter the URL"
+          />
+          <input class="submit-button" type="submit" value="Validate" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
